@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hys.app.student.dao.StudentDao">
+    <insert id="saveUser" parameterType="com.uncub.controller.UserDto" keyProperty="id">
+        insert into t_user(user_name,user_no) values(#{userName},#{userNo})
+    </insert>
+    <select id="getUserByUserNo" resultMap="userMapEntity" parameterType="String">
+        select * from t_user where user_no = #{userNo}
+    </select>
+
+    <resultMap id="userMapEntity" type="com.uncub.controller.UserDto">
+        <id property="id" column="id" />
+        <result property="userNo" column="user_no" ></result>
+        <result property="userName" column="user_name" javaType="java.lang.String"/>
+        <result property="solt" column="solt" javaType="java.lang.String"/>
+    </resultMap>
+</mapper>

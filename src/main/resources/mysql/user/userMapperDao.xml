@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uncub.mysql.UserDtoMapper">
+
+    <select id="selectUserByUserNo" resultMap="userMapEntity" parameterType="String">
+        select * from t_user where user_no = #{userNo}
+    </select>
+
+    <resultMap id="userMapEntity" type="com.uncub.controller.UserDto">
+        <id property="id" column="id" />
+        <result property="userNo" column="user_no" ></result>
+        <result property="userName" column="user_name" javaType="java.lang.String"/>
+        <result property="solt" column="solt" javaType="java.lang.String"/>
+    </resultMap>
+</mapper>
